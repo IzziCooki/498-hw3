@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{siteTitle}}</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+</head>
+
+<body>
+
+    <main class="content">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-inner">
+                <h2>Welcome to {{siteTitle}}</h2>
+                <p>Your hub for curated, high-quality PDF documents on DevOps.</p>
+                <a href="#pdfs" class="cta-btn">Browse PDFs</a>
+            </div>
+        </section>
+
+        <!-- PDF List -->
+        <section id="pdfs" class="pdf-section">
+            <h3 class="section-title">Available PDF Documents</h3>
+
+            {{#if pdfs.length}}
+                <div class="pdf-grid">
+                    {{#each pdfs}}
+                        <div class="pdf-card">
+                            <h4 class="pdf-title">{{title}}</h4>
+                            <p class="pdf-description">{{description}}</p>
+
+                            <div class="pdf-action">
+                                <a href="/pdf/{{filename}}" class="view-btn">View PDF</a>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            {{else}}
+                <p class="no-pdfs">No PDF documents found.</p>
+            {{/if}}
+        </section>
+    </main>
+
+
+</body>
+</html>
