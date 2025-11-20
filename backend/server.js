@@ -30,9 +30,9 @@ app.get('/', (req, res) => {
 
 const pdfs = [
     {
-        title: 'PDF 1',
-        description: 'This is the first PDF',
-        filename: 'pdf1.pdf'
+        title: 'DevOps for Web Development',
+        description: 'This is a PDF on DevOps for Web Development',
+        filename: 'DevOps for Web Development.pdf'
     }
 ];
 
