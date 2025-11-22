@@ -1,0 +1,33 @@
+<main class="content">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-inner">
+            <h1 style="font-size: 6rem; margin-bottom: 1rem; font-weight: 700;">404</h1>
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">{{#if errorMessage}}{{errorMessage}}{{else}}Page Not Found{{/if}}</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">
+                {{#if errorMessage}}
+                    {{errorMessage}}
+                {{else}}
+                    Oops! The page you're looking for doesn't exist.
+                {{/if}}
+            </p>
+            <a href="/" class="cta-btn">Go Back Home</a>
+        </div>
+    </section>
+
+    <!-- Additional Help Section -->
+    <section class="pdf-section">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <h3 class="section-title">What were you looking for?</h3>
+            <p style="color: #666; margin-bottom: 2rem;">
+                You might have been looking for one of these pages:
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/" class="view-btn">Home</a>
+                <a href="/pdf" class="view-btn">View All PDFs</a>
+                <a href="/add-pdf" class="view-btn">Add PDF</a>
+            </div>
+        </div>
+    </section>
+</main>
+

@@ -29,10 +29,10 @@
                     {{#each pdfs}}
                         <div class="pdf-card">
                             <h4 class="pdf-title">{{title}}</h4>
-                            <p class="pdf-description">{{description}}</p>
-
+                            <p class="pdf-description">{{subject}}</p>
+                            <p class="pdf-description">{{filename}}</p>
                             <div class="pdf-action">
-                                <a href="/pdf/{{filename}}" class="view-btn">View PDF</a>
+                                <a href="/pdf/{{filename}}" class="view-btn" target="_blank">View PDF</a>
                             </div>
                         </div>
                     {{/each}}
