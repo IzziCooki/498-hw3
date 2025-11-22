@@ -1,60 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="/styles/main.css" />
-</head>
-<body>
-    <main class="content">
-        <!-- Hero -->
-        <section class="hero">
-            <div class="hero-inner">
-                <h2>PDF Library Inventory</h2>
-                <p>Browse every PDF stored on the server with its metadata.</p>
-                <a href="/add-pdf" class="cta-btn">Add Another PDF</a>
-            </div>
-        </section>
+<div class="container">
+    <h2 class="section-title">PDF Library</h2>
 
-        <!-- Table -->
-        <section class="pdf-section">
-            <h3 class="section-title">Stored PDFs</h3>
-
-            {{#if pdfs.length}}
-                <div class="table-wrapper">
-                    <table class="pdf-table">
-                        <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Author</th>
-                                <th>Subject</th>
-                                <th>Filename</th>
-                                <th>Added</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{#each pdfs}}
-                                <tr>
-                                    <td>{{#if title}}{{title}}{{else}}Untitled{{/if}}</td>
-                                    <td>{{#if author}}{{author}}{{else}}—{{/if}}</td>
-                                    <td>{{#if subject}}{{subject}}{{else}}—{{/if}}</td>
-                                    <td>{{filename}}</td>
-                                    <td>{{created_at}}</td>
-                                    <td>
-                                        <a href="/pdf/{{filename}}" class="view-btn" target="_blank">View</a>
-                                    </td>
-                                </tr>
-                            {{/each}}
-                        </tbody>
-                    </table>
+    {{#if pdfs.length}}
+        <div class="pdf-grid">
+            {{#each pdfs}}
+                <div class="pdf-card">
+                    <div class="pdf-card-header">
+                        <h3>{{#if title}}{{title}}{{else}}Untitled{{/if}}</h3>
+                    </div>
+                    <div class="pdf-card-body">
+                        <p>{{#if subject}}{{subject}}{{else}}No subject available.{{/if}}</p>
+                    </div>
+                    <div class="pdf-card-footer">
+                        <span class="pdf-author">{{#if author}}{{author}}{{else}}Unknown Author{{/if}}</span>
+                        <a href="/pdf/{{filename}}" class="btn btn-primary" target="_blank">View PDF</a>
+                    </div>
                 </div>
-            {{else}}
-                <p class="no-pdfs">No PDFs have been uploaded yet.</p>
-            {{/if}}
-        </section>
-    </main>
-</body>
-</html>
-
+            {{/each}}
+        </div>
+    {{else}}
+        <div class="text-center">
+            <p>No PDFs have been uploaded yet. Why not add one?</p>
+            <a href="/add-pdf" class="btn btn-primary mt-2">Add Your First PDF</a>
+        </div>
+    {{/if}}
+</div>

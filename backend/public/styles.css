@@ -1,242 +1,307 @@
-/* Global Reset */
+/*==============================
+//  MAIN STYLESHEET
+//==============================*/
+
+/* VARIABLES */
+:root {
+    --primary-color: #6d28d9;
+    --primary-hover: #5b21b6;
+    --dark-bg: #111827;
+    --dark-card: #1f2937;
+    --dark-border: #374151;
+    --light-text: #f9fafb;
+    --medium-text: #9ca3af;
+    --success-color: #10b981;
+    --success-hover: #059669;
+}
+
+/* GLOBAL RESETS */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: "Inter", Arial, sans-serif;
-    background: #f5f7fa;
-    color: #333;
-    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+    background: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.7;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+img {
+    max-width: 100%;
+}
+
+/* LAYOUT */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.main-content {
+    padding: 2rem 0;
 }
 
 /* NAVBAR */
 .navbar {
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-    padding: 1rem 0;
+    background: var(--dark-card);
+    border-bottom: 1px solid var(--dark-border);
+    padding: 1.2rem 0;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 100;
 }
 
 .nav-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 1rem; /* Added padding for spacing from edges */
 }
 
 .logo {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
+    color: var(--light-text);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
 }
 
 .nav-links a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #333;
+    color: var(--medium-text);
+    margin-left: 25px;
     font-weight: 500;
-    transition: 0.2s ease;
+    transition: color 0.2s ease;
 }
 
-.nav-links a:hover {
-    color: #007aff;
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--light-text);
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
-    background: linear-gradient(135deg, #007aff, #3b82f6);
-    color: white;
-    padding: 5rem 1rem;
     text-align: center;
+    padding: 5rem 1rem;
 }
 
-.hero-inner h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+.hero h1 {
+    font-size: 3rem;
     font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
-.hero-inner p {
+.hero p {
     font-size: 1.2rem;
-    opacity: 0.9;
-    margin-bottom: 2rem;
+    color: var(--medium-text);
+    max-width: 600px;
+    margin: 0 auto 2rem;
 }
 
-.cta-btn {
-    background: white;
-    color: #007aff;
-    padding: 0.9rem 1.8rem;
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    border: none;
     border-radius: 8px;
-    text-decoration: none;
     font-weight: 600;
-    box-shadow: 0 4px 10px rgba(255,255,255,0.25);
-    transition: 0.2s ease;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
 }
 
-.cta-btn:hover {
-    background: #eaf2ff;
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--light-text);
 }
 
-/* PDF SECTION */
-.pdf-section {
-    width: 90%;
-    max-width: 1200px;
+.btn-primary:hover {
+    background: var(--primary-hover);
+    color: var(--light-text);
+}
+
+.btn-success {
+    background: var(--success-color);
+    color: var(--light-text);
+}
+
+.btn-success:hover {
+    background: var(--success-hover);
+    color: var(--light-text);
+}
+
+/* FORMS */
+.form-section {
+    max-width: 700px;
     margin: 3rem auto;
-}
-
-.table-wrapper {
-    overflow-x: auto;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-}
-
-.pdf-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 720px;
-}
-
-.pdf-table thead {
-    background: #eef2ff;
-}
-
-.pdf-table th,
-.pdf-table td {
-    padding: 1rem 1.2rem;
-    text-align: left;
-    border-bottom: 1px solid #e5e7eb;
-    font-size: 0.95rem;
-}
-
-.pdf-table th {
-    font-weight: 600;
-    color: #1f2937;
-}
-
-.pdf-table tbody tr:hover {
-    background: #f9fafb;
-}
-
-.pdf-form {
-    background: #fff;
+    background: var(--dark-card);
     padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
-    max-width: 720px;
-    margin: 0 auto;
+    border-radius: 12px;
+    border: 1px solid var(--dark-border);
 }
 
 .form-group {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
 }
 
 .form-group label {
     display: block;
     font-weight: 600;
-    color: #111827;
     margin-bottom: 0.5rem;
 }
 
 .form-group input,
-.form-group textarea,
-.form-group select {
+.form-group textarea {
     width: 100%;
-    padding: 0.85rem 1rem;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
+    padding: 0.9rem;
+    background: var(--dark-bg);
+    border: 1px solid var(--dark-border);
+    border-radius: 8px;
+    color: var(--light-text);
     font-size: 1rem;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    background: #f9fafb;
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
-    background: #fff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.3);
 }
 
 .form-hint {
-    display: block;
-    margin-top: 0.4rem;
-    font-size: 0.85rem;
-    color: #6b7280;
+    font-size: 0.9rem;
+    color: var(--medium-text);
+    margin-top: 0.5rem;
 }
 
-.section-title {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-/* PDF Grid */
+/* PDF LIST / GRID */
 .pdf-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .pdf-card {
-    background: white;
-    padding: 1.6rem;
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
     border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    transition: 0.25s ease;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .pdf-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.pdf-title {
-    font-size: 1.2rem;
+.pdf-card-header h3 {
+    font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
 }
 
-.pdf-description {
-    font-size: 0.95rem;
-    color: #555;
-    margin-bottom: 1rem;
+.pdf-card-body {
+    flex-grow: 1;
+    color: var(--medium-text);
+    margin-bottom: 1.5rem;
 }
 
-/* Buttons */
-.view-btn {
-    text-decoration: none;
-    background: #007aff;
-    color: white;
-    padding: 0.7rem 1.2rem;
-    border-radius: 6px;
-    font-weight: 500;
-    display: inline-block;
-    transition: 0.2s ease;
+.pdf-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--medium-text);
 }
 
-.view-btn:hover {
-    background: #005fcc;
+.pdf-author {
+    font-style: italic;
 }
 
 /* FOOTER */
 .footer {
-    background: #fff;
-    padding: 1.2rem;
     text-align: center;
+    padding: 2rem 0;
     margin-top: 3rem;
-    color: #666;
-    font-size: 0.9rem;
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid var(--dark-border);
+    color: var(--medium-text);
+}
+
+/* UTILITIES */
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: center; /* Added for horizontal centering in column layout */
+    }
+
+    .nav-links {
+        margin-top: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links a {
+        margin: 0 10px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
 }
