@@ -6,7 +6,6 @@ This project is a web application for managing and viewing PDF files, developed 
 
 - **PDF Management**: Upload and store PDF documents.
 - **PDF Viewing**: View the list of available PDFs and their details.
-- **PDF Processing**: Extracts information and generates images from PDFs using `pdf-parse` and `pdf-to-img`.
 - **Responsive UI**: Built with Handlebars (hbs) templates and custom CSS.
 - **Containerization**: Fully dockerized application using Docker Compose.
 - **Reverse Proxy**: Integrated Nginx Proxy Manager for handling traffic and SSL management.
