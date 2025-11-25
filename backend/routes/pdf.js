@@ -6,6 +6,18 @@ const router = express.Router();
 const { checkPdfExists } = require('../middleware/checkPdfExists.js');
 const { getPdfs } = require('../middleware/getPdfs.js');
 
+// Download route
+router.get("/download/:filename", checkPdfExists, (req, res) => {
+    res.download(req.validatedPdfPath, req.params.filename, (err) => {
+        if (err) {
+            console.error('Error downloading PDF file:', err);
+            if (!res.headersSent) {
+                res.status(500).send("Error downloading file");
+            }
+        }
+    });
+});
+
 // Use checkPdfExists middleware to validate PDF before serving
 router.get("/:filename", checkPdfExists, (req, res) => {
     // Use the validated path from the middleware
