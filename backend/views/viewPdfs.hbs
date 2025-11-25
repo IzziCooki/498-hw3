@@ -13,7 +13,10 @@
                     </div>
                     <div class="pdf-card-footer">
                         <span class="pdf-author">{{#if author}}{{author}}{{else}}Unknown Author{{/if}}</span>
-                        <a href="/pdf/{{filename}}" class="btn btn-primary" target="_blank">View PDF</a>
+                        <div class="button-group">
+                            <a href="/pdf/{{filename}}" class="btn btn-primary" target="_blank">View</a>
+                            <a href="/pdf/download/{{filename}}" class="btn btn-secondary">Download</a>
+                        </div>
                     </div>
                 </div>
             {{/each}}

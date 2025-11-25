@@ -150,6 +150,21 @@ img {
     color: var(--light-text);
 }
 
+.btn-secondary {
+    background: var(--dark-border);
+    color: var(--light-text);
+}
+
+.btn-secondary:hover {
+    background: #4b5563;
+    color: var(--light-text);
+}
+
+.button-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
 /* FORMS */
 .form-section {
     max-width: 700px;
