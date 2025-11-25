@@ -38,6 +38,24 @@ This project is a web application for managing and viewing PDF files, developed 
 └── README.md               # Project documentation
 ```
 
+## Database Schema
+
+The application uses an SQLite database (`backend/db/app.db`) with a single table `pdfs` to store metadata about the uploaded PDF files.
+
+### Table: `pdfs`
+
+| Column       | Type    | Description                                      |
+| :----------- | :------ | :----------------------------------------------- |
+| `id`         | INTEGER | Primary Key, Auto-incremented unique identifier. |
+| `filename`   | TEXT    | The original name of the uploaded file.          |
+| `filepath`   | TEXT    | The path where the file is stored on the server. |
+| `title`      | TEXT    | The title of the PDF document.                   |
+| `author`     | TEXT    | The author of the PDF document.                  |
+| `subject`    | TEXT    | The subject or description of the PDF.           |
+| `keywords`   | TEXT    | Keywords associated with the PDF.                |
+| `pages`      | INTEGER | The number of pages in the PDF.                  |
+| `created_at` | TEXT    | Timestamp of creation (defaults to current time).|
+
 ## Getting Started
 
 ### Prerequisites
