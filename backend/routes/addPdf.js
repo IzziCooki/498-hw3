@@ -5,7 +5,7 @@ const path = require('path');
 const pdfFolder = path.join(__dirname, '..', 'pdfs');
 const { insertStmt } = require('../database');
 const multer = require('multer');
-const { verifyPdf} = require('../middleware/verifyPdf');
+const { verifyPdf} = require('../middleware/verifyPdf.js');
 const fs = require('fs');
 
 const storage = multer.diskStorage({

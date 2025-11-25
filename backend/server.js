@@ -6,7 +6,7 @@ const path = require('path');
 const PORT = process.env.PORT || 1738;
 const pdfRoutes = require('./routes/pdf');
 const addPdfRoutes = require('./routes/addPdf');
-const { getPdfs } = require('./middleware/verifyPdf');
+const  { getPdfs }  = require('./middleware/getPdfs.js');
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));

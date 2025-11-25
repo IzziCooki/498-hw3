@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { getPdfs, checkPdfExists } = require('../middleware/verifyPdf');
+const { checkPdfExists } = require('../middleware/checkPdfExists.js');
+const { getPdfs } = require('../middleware/getPdfs.js');
 
 // Use checkPdfExists middleware to validate PDF before serving
 router.get("/:filename", checkPdfExists, (req, res) => {
