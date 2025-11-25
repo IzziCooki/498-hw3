@@ -7,4 +7,28 @@
             <a href="/add-pdf" class="btn btn-success mt-2">Add New PDF</a>
         </div>
     </section>
+
+    <section class="featured-pdfs mt-5">
+        <h2 class="section-title">Featured Documents</h2>
+        {{#if pdfs.length}}
+        <div class="pdf-grid">
+            {{#each pdfs}}
+            <div class="pdf-card">
+                <div class="pdf-card-header">
+                    <h3>{{this.title}}</h3>
+                </div>
+                <div class="pdf-card-body">
+                    <p>{{this.subject}}</p>
+                </div>
+                <div class="pdf-card-footer">
+                    <span class="pdf-author">{{this.author}}</span>
+                    <a href="/pdf/{{this.filename}}" class="btn btn-primary" target="_blank">View PDF</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <p class="text-center">No featured PDFs available.</p>
+        {{/if}}
+    </section>
 </div>

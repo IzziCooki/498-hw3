@@ -9,6 +9,7 @@ const db = new sqlite3.Database(dbPath, (err) => {
     }
     console.log('Connected to the SQLite database.');
     createTables();
+    seedData();
 });
 //PDF filename + path
 //– Display title/name
@@ -38,6 +39,48 @@ const insertStmt = db.prepare(`
     VALUES (?, ?, ?, ?, ?)
   `);
 
+const staticPdfs = [
+    {
+        filename: 'Implementing DevOps on AWS.pdf',
+        filepath: 'pdfs/Implementing DevOps on AWS.pdf',
+        title: 'Implementing DevOps on AWS',
+        author: 'AWS',
+        subject: 'DevOps'
+    },
+    {
+        filename: 'Continuous Delivery and DevOps - A Quickstart Guide.pdf',
+        filepath: 'pdfs/Continuous Delivery and DevOps - A Quickstart Guide.pdf',
+        title: 'Continuous Delivery and DevOps',
+        author: 'Unknown',
+        subject: 'DevOps'
+    },
+    {
+        filename: 'DevOps for Web Development.pdf',
+        filepath: 'pdfs/DevOps for Web Development.pdf',
+        title: 'DevOps for Web Development',
+        author: 'Unknown',
+        subject: 'DevOps'
+    }
+];
 
+function seedData() {
+    staticPdfs.forEach((pdf) => {
+        db.get("SELECT id FROM pdfs WHERE filename = ?", [pdf.filename], (err, row) => {
+            if (err) {
+                console.error(err.message);
+                return;
+            }
+            if (!row) {
+                insertStmt.run(pdf.filename, pdf.filepath, pdf.title, pdf.subject, pdf.author, (err) => {
+                    if (err) {
+                        console.error('Error inserting seed data:', err.message);
+                    } else {
+                        console.log(`Inserted seed data for ${pdf.filename}`);
+                    }
+                });
+            }
+        });
+    });
+}
 
-module.exports = { db, createTables, insertStmt };
+module.exports = { db, createTables, insertStmt, staticPdfs };

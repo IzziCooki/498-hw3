@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const hbs = require('hbs'); 
-const { db, createTables } = require('./database');
+const { db, createTables, staticPdfs } = require('./database');
 const path = require('path');
 const PORT = process.env.PORT || 1738;
 const pdfRoutes = require('./routes/pdf');
@@ -21,12 +21,12 @@ app.use('/pdf', pdfRoutes);
 app.use('/add-pdf', addPdfRoutes);
 
 
-app.get('/', getPdfs, (req, res) => {
+app.get('/', (req, res) => {
     res.render('home', {
         layout: 'layout/main',
         title: 'DevOps PDF Library',
         siteTitle: 'DevOps PDF Library',
-        pdfs: req.pdfs || []
+        pdfs: staticPdfs
     });
 });
 
