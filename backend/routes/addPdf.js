@@ -1,3 +1,6 @@
+//Api route to add a PDF to the database
+
+
 const express = require('express');
 const router = express.Router();
 const { db } = require('../database');
@@ -7,6 +10,8 @@ const { insertStmt } = require('../database');
 const multer = require('multer');
 const { verifyPdf} = require('../middleware/verifyPdf.js');
 const fs = require('fs');
+
+//Use multer to handle file uploads
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -31,7 +36,7 @@ const storage = multer.diskStorage({
 });
 
 
-
+//upload.single handles single file upload with the field name 'pdfFile'
 router.post('/', upload.single('pdfFile'), verifyPdf, (req, res) => {
     const filePath = req.file.path;
     const filename = req.file.filename;

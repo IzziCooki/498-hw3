@@ -15,6 +15,8 @@ hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Use PDF routes
+
 app.use('/pdf', pdfRoutes);
 app.use('/add-pdf', addPdfRoutes);
 

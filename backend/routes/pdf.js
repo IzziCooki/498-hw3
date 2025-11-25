@@ -1,3 +1,6 @@
+//Api route to view and serve PDFs
+
+
 const express = require('express');
 const router = express.Router();
 const { checkPdfExists } = require('../middleware/checkPdfExists.js');

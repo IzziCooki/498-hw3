@@ -31,6 +31,8 @@ function createTables() {
     });
 }
 
+
+// Prepare an SQL statement for inserting a new PDF record into the database
 const insertStmt = db.prepare(`
     INSERT INTO pdfs (filename, filepath, title, subject, author)
     VALUES (?, ?, ?, ?, ?)
